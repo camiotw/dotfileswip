@@ -1,0 +1,87 @@
+##################################################################################################
+################################# CAMIO LINUX SETUP CHEATSHEET ###################################
+##################################################################################################
+######################### https://github.com/camiotw/dotfileswip.git ##############################
+##################################################################################################
+
+
+Contents:
+
+		01) Speedtest-cli
+		02) Currency Converter cli
+		03) Background Function bash
+		04) Google Translate cli
+		05)
+		06)
+		07)
+		08)
+		09)
+		10)
+
+Notes
+		[1] - Unconfirmed if its just pip or python-pip on apt-get
+		[2] -
+		[3] -
+		[4] -
+		[5] -
+		[6] -
+
+WIP NOTES	
+		# Paths to WIP files
+		~/Documents/git/setups/Setups (change the capital S)
+		~/.i3/config
+		~/.bashrc
+
+		# Add stuffs and steps from hist
+
+
+##_01)_######################### Speedtest-cli / st (alias) ######################################
+
+sudo pacman -S python-pip // sudo apt install python-pip #[1]
+pip install speedtest-cli
+
+##_02)_######################### Currency Converter (xe) #########################################
+
+Add this to ~/.bashrc:
+
+cconv() {
+  wget -qO- "http://www.google.com/finance/converter?a=$1&from=$2&to=$3" |  sed '/res/!d;s/<[^>]*>//g';
+}
+
+##_03)_######################### Bash Background Function ########################################
+
+# Background function - launching commands in background with the "bg" prefix
+# Example: bg gedit
+
+function bg() {
+    ($* &> /dev/null &)
+}
+
+##_04)_######################### Google Translate cli ############################################
+
+# Requires
+
+$ git clone https://github.com/soimort/translate-shell
+$ cd translate-shell/
+$ make
+$ [sudo] make install
+
+# How to use:
+	trans = command xx = from : = seperator  yy = to word = what you want to translate
+	check aliases in .bashrc for quicktranslates	
+
+	$ trans xx:yy word
+
+##_05)_###########################################################################################
+
+
+##_06)_###########################################################################################
+
+
+##_07)_###########################################################################################
+
+
+
+
+
+
