@@ -13,14 +13,14 @@
 ##		05) rsync                                                                       ##
 ##		06) dunst                                                                       ##
 ##		07) Font(s)                                                                     ##
-##		08)                                                                             ##
-##		09)                                                                             ##
+##		08) Termite transp config                                                       ##
+##		09) gedit autocomplete plugin                                                   ##
 ##		10) Package lists                                                               ##
 ##                                                                                              ##
 ##	Notes                                                                                   ##
 ##		[1] - Unconfirmed if its just pip or python-pip on apt-get                      ##
 ##		[2] - Not sure if apt get has dunst (only tried on Arch)                        ##
-##		[3] -                                                                           ##
+##		[3] - Uncertain if xcompmgr is on apt-get                                       ##
 ##		[4] -                                                                           ##
 ##		[5] -                                                                           ##
 ##		[6] -                                                                           ##
@@ -81,18 +81,44 @@ function bg() {
 	config located @ ~/.config/dunst/dunstrc
 	$ [sudo] pacman -S dunst // [sudo] apt install dunst #[2]
 
-##_07)_############################## Font(s) ##############################################
+##_07)_############################## Font(s) ####################################################
 
 	Main font used on my Arch Linux installation is Yosemite San Francisco Display
 	source: https://github.com/supermarin/YosemiteSanFranciscoFont
 
 
-##_08)_############################## git good ###################################################
+##_08)_############################## Termite Transp #############################################
+	
+	# Requirements: xcompmgr or a similar composite manager
+	
+	# Installation
+	
+	$ [sudo] pacman -S xcompmgr // [sudo] apt install xcompmgr #[3]
+	
+	# Adding it to startup:
+	
+	$ echo "xcompmgr &" >> ~/.xinitrc
+	
+	config located @ ~/.config/termite/config
+	alpha channel lies in the last operator (x, x, x, N) where N = 0 to 1 (0=0% and 1=100%)
+
+	[colors]
+	foreground = rgba(255, 255, 255, 1)
+	background = rgba(63, 63, 63, 0.5)
+	
+##_09)_######################### gedit autocomplete plugin #######################################
+
+	# Source
+	https://code.google.com/archive/p/gedit-pair-char-autocomplete/
+	# Installation
+	$ cd ~/Downloads/ # Or wherever you downloaded the file to #
+	$ tar -xvzf gedit-pair-char-completion-1.0.6-gnome3.tar.gz
+	$ cd gedit-pair-char-completion-1.0.6-gnome3/
+	$ ./install.sh
 	
 
-
-##_09)_############################## Package Lists ##############################################
 ##_10)_############################## Package Lists ##############################################
+
 ##_10)_############################## Package Lists ##############################################
 
 
