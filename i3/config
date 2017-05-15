@@ -41,7 +41,8 @@ bindsym Mod1+Return exec termite
 bindsym Mod1+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+d exec dmenu_run -b
+#bindsym Mod1+d exec dmenu_run -b
+bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -85,6 +86,7 @@ bindsym Mod1+v split v
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen toggle
 
+ 
 # change container layout (stacked, tabbed, toggle split)
 bindsym Mod1+s layout stacking
 bindsym Mod1+w layout tabbed
@@ -109,13 +111,35 @@ bindsym Mod1+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym Mod1+minus scratchpad show
 
-# Workspace variables
+#::::::::::::::::::::::::::::::: Out system :::::::::::::::::::::::::::::::::::#
 
-set $_ws1 "1-:Terminals"
-set $_ws2 "2-:Browser"
-set $_ws3 "3-:Chat"
-set $_ws4 "4-:Music"
-set $_ws5 "5-:etc"
+#set $Locker i3lock && sleep 1
+#set $mode_system System:   L :  | S :  | P :  | R :  | E :   
+
+#mode "$mode_system" {
+#   bindsym l exec --no-startup-id i3lock-fancy, mode "default"
+#   bindsym s exec --no-startup-id $Lock systemctl suspend, mode "default
+#   bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"
+#   bindsym r exec --no-startup-id systemctl reboot, mode "default"
+#   bindsym e exec --no-startup-id i3-msg exit, mode "default"
+#
+#   back to normal: Enter or Escape
+#   bindsym Return mode "default"
+#   bindsym Escape mode "default"
+#}
+#bindsym $mod+x mode "$mode_system"
+
+# Workspace variables
+set $_ws1 ""
+set $_ws2 ""
+set $_ws3 ""
+set $_ws4 ""
+set $_ws5 ""
+set $_ws6 ""
+set $_ws7 ""
+set $_ws8 ""
+set $_ws9 ""
+set $_ws0 ""
 
 # switch to workspace
 bindsym Mod1+1 workspace $_ws1
@@ -123,36 +147,95 @@ bindsym Mod1+2 workspace $_ws2
 bindsym Mod1+3 workspace $_ws3
 bindsym Mod1+4 workspace $_ws4
 bindsym Mod1+5 workspace $_ws5
-bindsym Mod1+6 workspace 6
-bindsym Mod1+7 workspace 7
-bindsym Mod1+8 workspace 8
-bindsym Mod1+9 workspace 9
-bindsym Mod1+0 workspace 10
+bindsym Mod1+6 workspace $_ws6
+bindsym Mod1+7 workspace $_ws7
+bindsym Mod1+8 workspace $_ws8
+bindsym Mod1+9 workspace $_ws9
+bindsym Mod1+0 workspace $_ws0
 
 # global gap configs
-smart_gaps on
+
+# Set inner/outer gaps
+#set $default_gaps_inner 8
+#set $default_gaps_outer -4
+#gaps inner $default_gaps_inner
+#gaps outer $default_gaps_outer
+
+#smart_gaps on
+#smart_borders on
+
 gaps inner 10
-gaps outer 20
+gaps outer 15
 
-# workspace gap configs
-
+#!#!# workspace gap configs
+workspace "" gaps inner 10
+workspace "" gaps outer 35
+workspace "" gaps inner 5
+workspace "" gaps outer 3
+workspace "" gaps inner 5
+workspace "" gaps outer 3
+workspace "" gaps inner 5
+workspace "" gaps outer 3
+workspace "" gaps inner 5
+workspace "" gaps outer 3
 
 # move focused container to workspace
-bindsym Mod1+Shift+1 move container to workspace %_ws1
-bindsym Mod1+Shift+2 move container to workspace %_ws2
-bindsym Mod1+Shift+3 move container to workspace %_ws3
-bindsym Mod1+Shift+4 move container to workspace %_ws4
-bindsym Mod1+Shift+5 move container to workspace %_ws5
-bindsym Mod1+Shift+6 move container to workspace 6
-bindsym Mod1+Shift+7 move container to workspace 7
-bindsym Mod1+Shift+8 move container to workspace 8
-bindsym Mod1+Shift+9 move container to workspace 9
-bindsym Mod1+Shift+0 move container to workspace 10
+bindsym Mod1+Shift+1 move container to workspace $_ws1
+bindsym Mod1+Shift+2 move container to workspace $_ws2
+bindsym Mod1+Shift+3 move container to workspace $_ws3
+bindsym Mod1+Shift+4 move container to workspace $_ws4
+bindsym Mod1+Shift+5 move container to workspace $_ws5
+bindsym Mod1+Shift+6 move container to workspace $_ws6
+bindsym Mod1+Shift+7 move container to workspace $_ws7
+bindsym Mod1+Shift+8 move container to workspace $_ws8
+bindsym Mod1+Shift+9 move container to workspace $_ws9
+bindsym Mod1+Shift+0 move container to workspace $_ws0
 
 # move startups to correct workspaces
 
-assign [class="Chromium"] $_ws2
+# apps (designated by xprop)		(workspace)	(comments)
+assign [class="Chromium"] 		$_ws2
+assign [class="Firefox"] 		$_ws2
+#assign [class="Thunar"]		$_ws3		# [01]
+assign [class="Vlc"]			$_ws4
+assign [class="mplayer"]		$_ws4
+assign [class="Lxappearance"]		$_ws9
+assign [class="Pavucontrol"]		$_ws9
+assign [class="imagewriter"]		$_ws9
+assign [class="Gimp"]			$_ws0
 
+#set windows options based on classes/title/role
+#for_window [class="qBittorrent" window_role="pop-up"] floating enable
+#for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
+#for_window [class="XTerm"] floating enable border pixel 4
+#for_window [class="xarchiver"] floating enable border pixel 1
+
+# Comments
+# [01]: might want to disable if you want to have browsers on other workspaces
+#
+#
+
+# Start iceweasel on workspace 3, then switch back to workspace 1
+# (Being a command-line utility, i3-msg does not support startup notifications,
+#  hence the exec --no-startup-id.)
+# (Starting iceweasel with i3’s exec command is important in order to make i3
+#  create a startup notification context, without which the iceweasel window(s)
+#  cannot be matched onto the workspace on which the command was started.)
+
+bindsym $mod+shift+z exec Thunar; workspace $_ws1
+
+## Float everything
+#for_window [class="[.]*"] floating enable 
+
+# Button Binds
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
+#bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+#bindsym Mod1+Tab workspace next
+
+# specify outputs
+#workspace $WS9 output VGA1
+#workspace $WS10 output HDMI3
 
 # reload the configuration file
 bindsym Mod1+Shift+c reload
@@ -208,7 +291,10 @@ hide_edge_borders both
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.i3/i3blocks.conf
+	verbose true
+	workspace_buttons yes
 	position top	
+	separator_symbol "::"	
 	colors {
 		background $bg-color
 	    	separator #757575
@@ -236,9 +322,15 @@ for_window [class="^.*"] border pixel 0
 
 # Mods
 set $mod Mod1
-set $Mod1 Mod4
+set $sup Mod4
 
 bindsym Mod4+shift+x exec i3lock
+
+# turn off mouse focus
+focus_follows_mouse no
+
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
 
 #######################################################################
 
@@ -262,12 +354,55 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-########################################################################
+########################## Needs update / consolidation ################################
 
 # Mod4+e explorer thunar
-exec thunar --daemon
+#exec thunar --daemon
 bindsym Mod1+e exec --no-startup-id thunar
 #exec --no-startup-id compton -f
 #exec --no-startup-id termite -e neofetch
+exec --no-startup-id chromium
+bindsym $mod+n exec nitrogen
+bindsym $mod+p exec scrot -d 2 -q 100 -z '%T-%d-%m-%Y_$wx$h.png' -e 'mv $f ~/Dropbox/Saves/Oremono/Overwatch_Screenshots/'
 
+########## Autostart app and daemons ##############
 
+#       Daemon
+exec --no-startup-id thunar --daemon
+#
+#       Background
+#exec --no-startup-id nitrogen --restore
+#
+#       Pulseaudio
+#!#!#exec --no-startup-id start-pulseaudio-x11
+#
+#       Music server MPD
+exec --no-startup-id mpd
+#
+#       Composite manager
+exec --no-startup-id compton -cCGb      
+#exec --no-startup-ic xcompmgr -c -t-5 -l-5 -r4.2 -o.55
+#
+#       Number unlocker
+#exec --no-startup-id numlockx on
+#
+#       Auto locker
+#exec xautolock -time 10 -locker i3lock-fancy
+#
+#       Conky
+#exec conky -d; sleep 1 && transset-df .5 -n Conky &
+#
+#		Xresources
+#exec --no-startup-id xrdb ~/.Xresources
+
+#		Dunst
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+#==============================================================================#
+#       Update notifier Archlinux
+#exec --no-startup-id aarchup            # exec octopi-notifier
+#       Clipboard
+#exec --no-startup-id parcellite
+#       Screensaver
+#exec --no-startup-id xscreensaver -nospalsh
+#       Oneko
+exec oneko -rv -tofocus

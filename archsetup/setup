@@ -10,8 +10,8 @@
 ##		02) Currency Converter cli                                                      ##
 ##		03) Background Function bash                                                    ##
 ##		04) Google Translate cli                                                        ##
-##		05)                                                                             ##
-##		06)                                                                             ##
+##		05) rsync                                                                       ##
+##		06) dunst                                                                       ##
 ##		07) Package lists                                                               ##
 ##		08)                                                                             ##
 ##		09)                                                                             ##
@@ -19,7 +19,7 @@
 ##                                                                                              ##
 ##	Notes                                                                                   ##
 ##		[1] - Unconfirmed if its just pip or python-pip on apt-get                      ##
-##		[2] -                                                                           ##
+##		[2] - Not sure if apt get has dunst (only tried on Arch)                        ##
 ##		[3] -                                                                           ##
 ##		[4] -                                                                           ##
 ##		[5] -                                                                           ##
@@ -36,8 +36,8 @@
 ##                                                                                              ##
 ##_01)_######################### Speedtest-cli / st (alias) ######################################
 
-sudo pacman -S python-pip // sudo apt install python-pip #[1]
-pip install speedtest-cli
+	$ [sudo] pacman -S python-pip // [sudo] apt install python-pip #[1]
+	$ pip install speedtest-cli
 
 ##_02)_######################### Currency Converter (xe) #########################################
 
@@ -58,24 +58,28 @@ function bg() {
 
 ##_04)_######################### Google Translate cli ############################################
 
-# Requires
+# Installation
 
-$ git clone https://github.com/soimort/translate-shell
-$ cd translate-shell/
-$ make
-$ [sudo] make install
+	$ git clone https://github.com/soimort/translate-shell
+	$ cd translate-shell/
+	$ make
+	$ [sudo] make install
 
 # How to use:
+
 	trans = command xx = from : = seperator  yy = to word = what you want to translate
 	check aliases in .bashrc for quicktranslates	
 
 	$ trans xx:yy word
 
-##_05)_###########################################################################################
+##_05)_################################ rsync ####################################################
 
+	$ [sudo] pacman -S rsync // [sudo] apt install rsync
 
-##_06)_###########################################################################################
-
+##_06)_################################ dunst ####################################################
+	
+	config located @ ~/.config/dunst/dunstrc
+	$ [sudo] pacman -S dunst // [sudo] apt install dunst #[2]
 
 ##_07)_############################## Package Lists ##############################################
 
