@@ -12,10 +12,10 @@
 ##		04) Google Translate cli                                                        ##
 ##		05) rsync                                                                       ##
 ##		06) dunst                                                                       ##
-##		07) Package lists                                                               ##
+##		07) Font(s)                                                                     ##
 ##		08)                                                                             ##
 ##		09)                                                                             ##
-##		10)                                                                             ##
+##		10) Package lists                                                               ##
 ##                                                                                              ##
 ##	Notes                                                                                   ##
 ##		[1] - Unconfirmed if its just pip or python-pip on apt-get                      ##
@@ -64,7 +64,7 @@ function bg() {
 	$ cd translate-shell/
 	$ make
 	$ [sudo] make install
-
+	
 # How to use:
 
 	trans = command xx = from : = seperator  yy = to word = what you want to translate
@@ -81,9 +81,25 @@ function bg() {
 	config located @ ~/.config/dunst/dunstrc
 	$ [sudo] pacman -S dunst // [sudo] apt install dunst #[2]
 
-##_07)_############################## Package Lists ##############################################
+##_07)_############################## Font(s) ##############################################
+
+	Main font used on my Arch Linux installation is Yosemite San Francisco Display
+	source: https://github.com/supermarin/YosemiteSanFranciscoFont
+
+
+##_08)_############################## git good ###################################################
+	
+
+
+##_09)_############################## Package Lists ##############################################
+##_10)_############################## Package Lists ##############################################
+##_10)_############################## Package Lists ##############################################
+
+
+##_10)_############################## Package Lists ##############################################
 
 # All foreign packages
+
 camio@overwatch: ^_^ [~] $: pacman -Qm
 archlinux-artwork 1.6-3
 cli-visualizer 1.6-6
@@ -96,6 +112,7 @@ moka-icon-theme-git 525.87373de8d-1
 neofetch 3.1.0-1
 
 # Explicitly installed packages
+
 camio@overwatch: ^_^ [~] $: pacman -Qe
 accountsservice 0.6.45-1	alsa-utils 1.1.3-2		apache 2.4.25-2
 arandr 0.1.9-2			archlinux-artwork 1.6-3		autoconf 2.69-4
