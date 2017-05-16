@@ -157,13 +157,18 @@ function bg() {
 	nmcli dev--wifi [SSID] password [PASSWORD]
 	# Even worse..
 	dont get me started on dhcpcd, netctl, and wifi-menu...
+	use a fucking ethernet cable for God's sake'
 	
 	# i3-gaps install, termite install, Thunar install, moka-icon-theme-git, faba-mono-theme
 	# neofetch, 
 	i3-gaps-next-git 4.13.141.g600b62fe-1	termite 12-2	lightdm-gtk-greeter 1:2.0.2-1
 	lxappearance 0.6.3-1				
 	
-	# Make i3 config for exporting to fresh installs
+	# Make i3 config for exporting to fresh installs #WIP
+	
+	gather dotfiles for easy install on new systems [Saiyūsen jikō yo!]
+	$ pacman -Qqe > package_list.txt # Check flags, want everything other than AUR packs
+	# make seperate  > aur_list.txt for yaourt 
 	
 
 ##_13)_############################## Package Lists ##############################################
