@@ -17,7 +17,7 @@
 ##		09) gedit autocomplete plugin                                                   ##
 ##		10) W I P                                                                       ##
 ##              11) neofetch configs                                                            ##
-##              12) W I P                                                                       ##
+##              12) T O D O                                                                       ##
 ##              13) Package lists                                                               ##
 ##              14)                                                                             ##
 ##              15)                                                                             ##
@@ -144,7 +144,7 @@ function bg() {
 	# move guakestartup to ~/.config/guaker/ # and set path to this in guake-prefs
 
 
-##_12)_############################### [ W  I  P ] ###############################################
+##_12)_############################### [ T O D O ] ###############################################
 
 	# Scripts to backup dotfiles to git?
 	# Try making installer script too
@@ -152,7 +152,19 @@ function bg() {
 	# ARCH-ANYWHERE ADDENDUM
 	# If using arch-anywhere installer edit nano /usr/lib/arch-anywhere/configure_desktop.sh
 	# change xorg-server-utils to xorg-apps.
-
+	
+	# NETWORK POS FUCKSTICK
+	nmcli dev--wifi [SSID] password [PASSWORD]
+	# Even worse..
+	dont get me started on dhcpcd, netctl, and wifi-menu...
+	
+	# i3-gaps install, termite install, Thunar install, moka-icon-theme-git, faba-mono-theme
+	# neofetch, 
+	i3-gaps-next-git 4.13.141.g600b62fe-1	termite 12-2	lightdm-gtk-greeter 1:2.0.2-1
+	lxappearance 0.6.3-1				
+	
+	# Make i3 config for exporting to fresh installs
+	
 
 ##_13)_############################## Package Lists ##############################################
 
