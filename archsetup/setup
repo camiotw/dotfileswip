@@ -15,7 +15,14 @@
 ##		07) Font(s)                                                                     ##
 ##		08) Termite transp config                                                       ##
 ##		09) gedit autocomplete plugin                                                   ##
-##		10) Package lists                                                               ##
+##		10) W I P                                                                       ##
+##              11) neofetch configs                                                            ##
+##              12) W I P                                                                       ##
+##              13) Package lists                                                               ##
+##              14)                                                                             ##
+##              15)                                                                             ##
+##                                                                                              ##
+##                                                                                              ##
 ##                                                                                              ##
 ##	Notes                                                                                   ##
 ##		[1] - Unconfirmed if its just pip or python-pip on apt-get                      ##
@@ -117,12 +124,37 @@ function bg() {
 	$ ./install.sh
 	
 
-##_10)_############################## Package Lists ##############################################
-
-##_10)_############################## Package Lists ##############################################
+##_10)_############################### [ W  I  P ] ###############################################
 
 
-##_10)_############################## Package Lists ##############################################
+
+
+##_11)_############################ neofetch configs #############################################
+
+	# neofetch config - for it to use wp it needs w3m, imagemagick, and curl
+	$ [sudo] pacman -S w3m
+	$ [sudo] pacman -S curl
+	$ [sudo] pacman -S imagemagick
+	
+	# make folder for neofetch to get wallpapers from
+	$ mkdir ~/Documents/{insert path}
+	$ mkdir ~/.config/guaker
+
+	# move guakestartupneo2 to ~/.config/neofetch/ # kinda bad path-system, feel free to clean
+	# move guakestartup to ~/.config/guaker/ # and set path to this in guake-prefs
+
+
+##_12)_############################### [ W  I  P ] ###############################################
+
+	# Scripts to backup dotfiles to git?
+	# Try making installer script too
+	
+	# ARCH-ANYWHERE ADDENDUM
+	# If using arch-anywhere installer edit nano /usr/lib/arch-anywhere/configure_desktop.sh
+	# change xorg-server-utils to xorg-apps.
+
+
+##_13)_############################## Package Lists ##############################################
 
 # All foreign packages
 
