@@ -17,7 +17,7 @@
 ##		09) gedit autocomplete plugin                                                   ##
 ##		10) W I P                                                                       ##
 ##              11) neofetch configs                                                            ##
-##              12) T O D O                                                                       ##
+##              12) T O D O                                                                     ##
 ##              13) Package lists                                                               ##
 ##              14)                                                                             ##
 ##              15)                                                                             ##
@@ -154,6 +154,11 @@ function bg() {
 	# change xorg-server-utils to xorg-apps.
 	
 	# NETWORK POS FUCKSTICK
+	$ nmcli con show
+	$ nmcli dev status
+	# nmcli connection add type ethernet con-name connection-name ifname interface-name
+	$ nmcli con add type ethernet con-name my-office ifname ens3
+	
 	nmcli dev--wifi [SSID] password [PASSWORD]
 	# Even worse..
 	dont get me started on dhcpcd, netctl, and wifi-menu...
@@ -162,7 +167,7 @@ function bg() {
 	# i3-gaps install, termite install, Thunar install, moka-icon-theme-git, faba-mono-theme
 	# neofetch, 
 	i3-gaps-next-git 4.13.141.g600b62fe-1	termite 12-2	lightdm-gtk-greeter 1:2.0.2-1
-	lxappearance 0.6.3-1				
+	lxappearance 0.6.3-1		
 	
 	# Make i3 config for exporting to fresh installs #WIP
 	
@@ -170,7 +175,17 @@ function bg() {
 	$ pacman -Qqe > package_list.txt # Check flags, want everything other than AUR packs
 	# make seperate  > aur_list.txt for yaourt 
 	
+	# Random stuff to work on/remember
+	Dropbox, guake, lightdm/lxdm greeters, havn't even started on musicplayers,
+	visualizer(vis), .xinitrc, .Xauthority, .xprofile, .Xresources, .fehbg, 
 
+	#d-menu -i to ignore capitalization.
+	
+	# FSTAB something to check out? Maybe stop using UUID due to the frequent HDD swapping.
+	
+	# Cava
+	$ yaourt -S cava
+	
 ##_13)_############################## Package Lists ##############################################
 
 # All foreign packages
