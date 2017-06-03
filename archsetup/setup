@@ -159,12 +159,12 @@ function bg() {
 	# nmcli connection add type ethernet con-name connection-name ifname interface-name
 	$ nmcli con add type ethernet con-name my-office ifname ens3
 	
-	nmcli dev--wifi [SSID] password [PASSWORD]
+	$ nmcli dev--wifi [SSID] password [PASSWORD]
 	# Even worse..
 	dont get me started on dhcpcd, netctl, and wifi-menu...
 	use a fucking ethernet cable for God's sake'
 	# Might've overreacted a bit.. stick with nmcli and disable network-manager.
-	
+	# Test network-manager again on fresh install, might just be wifi vs ethernet.
 	
 	# i3-gaps install, termite install, Thunar install, moka-icon-theme-git, faba-mono-theme
 	# neofetch, 
@@ -178,8 +178,8 @@ function bg() {
 	# make seperate  > aur_list.txt for yaourt 
 	
 	# Random stuff to work on/remember
-	Dropbox, guake, lightdm/lxdm greeters, havn't even started on musicplayers,
-	visualizer(vis), .xinitrc, .Xauthority, .xprofile, .Xresources, .fehbg, 
+	# Dropbox, guake, lightdm/lxdm greeters, havn't even started on musicplayers,
+	# visualizer(vis), .xinitrc, .Xauthority, .xprofile, .Xresources, .fehbg, 
 
 	#d-menu -i to ignore capitalization.
 	
@@ -197,12 +197,20 @@ function bg() {
 	# Qutebrowser
 	# Packer instead of Yaourt?
 	
+	# Implement the 20 million improvements from Luke's rice
+	
+	# Mount/Unmount scripts + USB sync scripts
+	
+	
+	
 	
 	###################################################################
 	###             RICE GOD Luke Smith YouTube Channel             ###
 	###################################################################
 	###  https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA   ###
 	###################################################################
+
+	
 	
 ##_13)_############################## Package Lists ##############################################
 ##                                    !NOT UPDATED!

@@ -1,0 +1,73 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "user_off",
+    "geometry": {
+       "height": 899,
+       "width": 151,
+       "x": 24,
+       "y": 52
+    },
+    "name": "Toolbox - Tool Options",
+    "percent": 0.137205506335683,
+    "swallows": [
+       {
+       // "class": "^Gimp\\-2\\.8$",
+       // "instance": "^gimp\\-2\\.8$",
+       // "title": "^Toolbox\\ \\-\\ Tool\\ Options$",
+       // "transient_for": "^$",
+       // "window_role": "^gimp\\-toolbox$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 899,
+       "width": 1357,
+       "x": 199,
+       "y": 52
+    },
+    "name": "GNU Image Manipulation Program",
+    "percent": 0.679461160330984,
+    "swallows": [
+       {
+       // "class": "^Gimp\\-2\\.8$",
+       // "instance": "^gimp\\-2\\.8$",
+       // "title": "^GNU\\ Image\\ Manipulation\\ Program$",
+       // "transient_for": "^$",
+       // "window_role": "^gimp\\-image\\-window$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "user_off",
+    "geometry": {
+       "height": 899,
+       "width": 316,
+       "x": 1580,
+       "y": 52
+    },
+    "name": "Layers - Brushes",
+    "percent": 0.183333333333333,
+    "swallows": [
+       {
+       // "class": "^Gimp\\-2\\.8$",
+       // "instance": "^gimp\\-2\\.8$",
+       // "title": "^Layers\\ \\-\\ Brushes$",
+       // "transient_for": "^$",
+       // "window_role": "^gimp\\-dock$"
+       }
+    ],
+    "type": "con"
+}
+

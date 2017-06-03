@@ -13,6 +13,93 @@
 # is used in the bar {} block below.
 font pango:System San Francisco Display 13
 
+###################### From Luke's i3 config ##########################
+
+set $term termite
+set $pterm termite -c ~/.config/termite/workspace1
+#set $browser firefox
+set $browser chromium
+set $screencast  ffmpeg -y -f x11grab -video_size 1280x800 -i :0.0 -f alsa -i default -c:v ffvhuff -r 30 -c:a flac output.mkv
+set $audio ffmpeg -f alsa -i default -c:a flac -y output.flac
+
+
+#bindsym $mod+Tab		workspace back_and_forth
+#bindsym $mod+Shift+BackSpace	exec sudo reboot
+
+#bindsym $mod+Escape		workspace prev
+#bindsym $mod+semicolon		workspace next
+
+#bindsym $mod+w			exec qutebrowser
+#bindsym $mod+Shift+w		exec --no-startup-id $browser
+
+#bindsym $mod+r			exec $term -e ranger
+
+bindsym $mod+s			gaps inner current plus 5
+bindsym $mod+Shift+s		gaps inner current minus 5
+
+bindsym $mod+z			gaps outer current plus 5
+bindsym $mod+Shift+z		gaps outer current minus 5
+
+#bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
+
+#bindsym $mod+Shift+h		move left 30
+#bindsym $mod+Shift+j		move down 30
+#bindsym $mod+Shift+k		move up 30
+#bindsym $mod+Shift+l		move right 30
+
+#bindsym $mod+c			exec $term -e weechat
+#bindsym $mod+v			exec $term -e vis
+#bindsym $mod+m			exec $term -e $music
+
+bindsym $mod+shiftx		split horizontal ;; exec $term
+bindsym $mod+x			split vertical ;; exec $term
+
+bindsym $mod+shift+g		split horizontal ;; exec $pterm
+bindsym $mod+g			split vertical ;; exec $pterm
+
+
+bindsym $mod+Shift+a		exec pavucontrol
+
+bindsym F1			exec --no-startup-id echo "help" > /dev/null
+
+bindsym $mod+F4			exec --no-startup-id sudo systemctl suspend
+bindsym $mod+F5			exec --no-startup-id sudo systemctl restart NetworkManager
+
+bindsym $mod+F9			exec --no-startup-id sudo bash ~/.config/i3/mount.sh
+bindsym $mod+F10		exec --no-startup-id sudo bash ~/.config/i3/unmount.sh
+
+#exec --no-startup-id nm-applet
+#exec --no-startup-id xcompmgr -slt
+#exec_always --no-startup-id python ~/.config/Scripts/shortcuts.py
+
+for_window [title="GIMP Startup"] move workspace $_ws0
+for_window [class="Gimp"] move workspace $_ws0
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="Toolbox - Tool Options"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+for_window [window_role="Layers - Brushes"] floating disable; move right; resize grow width 30 px or 30ppt
+
+###
+
+for_window [title="^Toolbox\\ \\-\\ Tool\\ Options$"] floating disable; move left; resize shrink width 50 px or 50ppt
+
+for_window [title="^Layers\\ \\-\\ Brushes$$"] floating disable; move right; resize shrink width 50 px or 50ppt
+
+###
+
+
+#bindsym $mod+Home		workspace $ws1
+#bindsym $mod+Shift+Home	move container to workspace $ws1
+#bindsym $mod+End		workspace $ws10
+#bindsym $mod+Shift+End		move container to workspace $ws10
+#bindsym $mod+Prior		workspace prev
+#bindsym $mod+Shift+Prior	move container to workspace prev
+#bindsym $mod+Next		workspace next
+#bindsym $mod+Shift+Next	move container to workspace next
+
+#######################################################################
+
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -88,9 +175,9 @@ bindsym Mod1+f fullscreen toggle
 
  
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod1+s layout stacking
-bindsym Mod1+w layout tabbed
-bindsym Mod4+e layout toggle split
+#bindsym Mod1+s layout stacking
+#bindsym Mod1+w layout tabbed
+#bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
 bindsym Mod1+Shift+space floating toggle
@@ -176,8 +263,8 @@ workspace "" gaps inner 5
 workspace "" gaps outer 3
 workspace "" gaps inner 5
 workspace "" gaps outer 3
-workspace "" gaps inner 5
-workspace "" gaps outer 3
+workspace "" gaps inner 25
+workspace "" gaps outer 15
 
 # move focused container to workspace
 bindsym Mod1+Shift+1 move container to workspace $_ws1
@@ -202,7 +289,7 @@ assign [class="mplayer"]		$_ws4
 assign [class="Lxappearance"]		$_ws9
 assign [class="Pavucontrol"]		$_ws9
 assign [class="imagewriter"]		$_ws9
-assign [class="Gimp"]			$_ws0
+#assign [class="Gimp"]			$_ws0
 
 #set windows options based on classes/title/role
 #for_window [class="qBittorrent" window_role="pop-up"] floating enable
@@ -222,7 +309,7 @@ assign [class="Gimp"]			$_ws0
 #  create a startup notification context, without which the iceweasel window(s)
 #  cannot be matched onto the workspace on which the command was started.)
 
-bindsym $mod+shift+z exec Thunar; workspace $_ws1
+#bindsym $mod+shift+z exec Thunar; workspace $_ws1
 
 ## Float everything
 #for_window [class="[.]*"] floating enable 
@@ -324,13 +411,11 @@ for_window [class="^.*"] border pixel 0
 set $mod Mod1
 set $sup Mod4
 
-bindsym Mod4+shift+x exec i3lock
-
 # turn off mouse focus
 focus_follows_mouse no
 
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id termite -c ~/.config/termite/workspace1 &
+#exec --no-startup-id termite -c ~/.config/termite/workspace1 &
 #exec --no-startup-id termite --name su1 -c ~/.config/termite/workspace1 -e 'bash -c "screenfetch; exec bash"' &
 
 ###################### i3 Layout saving ##############################
@@ -343,7 +428,9 @@ exec --no-startup-id termite -c ~/.config/termite/workspace1 &
 # 
 #### This is for saving workspace layout (N=workspace)
 #i3-save-tree --workspace N > ~/.i3/workspace_N.json
+#i3-save-tree --workspace  > ~/.i3/workspace_0-1.json
 #### This is needed for stripping/editing the json after layout save.
+#### (Doesn't really work for me but w/e, just edit manually removing "//" comments and validate json)
 #tail -n +2 ~/.i3/workspace_N.json | fgrep -v '// splitv' | sed 's|//||g' > ~/.i3/workspace_N.json
 
 ###################### i3 Layout execs ################################
@@ -352,19 +439,22 @@ exec --no-startup-id "i3-msg 'workspace ; append_layout ~/.i3/workspace_1-3.j
 
 exec --no-startup-id i3-msg 'workspace ; exec termite --name t1 -c ~/.config/termite/workspace1'
 exec --no-startup-id i3-msg 'workspace ; exec termite --name t2 -c ~/.config/termite/workspace1'
-exec --no-startup-id i3-msg 'workspace ; exec termite --name t3 -c ~/.config/termite/workspace1'
-exec --no-startup-id i3-msg 'workspace ; exec termite --name t4 -c ~/.config/termite/workspace1'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t3 -c ~/.config/termite/workspace1 -e htop'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t4 -c ~/.config/termite/workspace1 -e cava'
 
-#######################################################################
+###################### Wallpaper settings ##############################
 
-# Wallpaper
+# Implement ~/.config/wallpapers/
 
 #1
 #exec_always feh --bg-scale /home/camio/Downloads/BrowserDLs/NyaITD5.png
 #2
 #exec_always feh --bg-scale /home/camio/Downloads/BrowserDLs/wallpaper2.png
+#3
 #exec_always feh --bg-scale --randomize /home/camio/Documents/Peacekeeper/WPs/WP1/
+#4
 exec_always feh --bg-scale /home/camio/Documents/Peacekeeper/WPs/WP1/wallpaper3.png
+
 
 ###################### Custom media keys ###############################
 
@@ -379,7 +469,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-########################## Needs update / consolidation ################################
+###################### Needs update / consolidation ####################
 
 # Mod4+e explorer thunar
 #exec thunar --daemon
@@ -392,6 +482,12 @@ bindsym $mod+p exec scrot -d 2 -q 100 -z '%T-%d-%m-%Y_$wx$h.png' -e 'mv $f ~/Dro
 #       Oneko
 exec --no-startup-id oneko -tora -rv -tofocus
 exec --no-startup-id dropbox &
+
+####
+
+bindsym Mod4+shift+x exec i3lock
+bindsym $mod+shift+d exec gedit
+
 
 ########## Autostart app and daemons ##############
 
