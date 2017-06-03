@@ -75,6 +75,8 @@ alias free="free -mt"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias wget="wget -c"
 alias histg="history | grep"
+alias aurs="yaourt -Ss"
+alias aur="yaourt"
 
 # Ping aliases
 alias ping='ping -c 5' # Stop after sending count ECHO_REQUEST packets #
@@ -153,5 +155,9 @@ echo
 echo Remember your TO DO list!!   todolist = cat file
 echo
 
+
+##################################################################################################
+
+export PATH=$PATH:/sbin
 
 ##################################################################################################

@@ -332,6 +332,29 @@ focus_follows_mouse no
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id termite -c ~/.config/termite/workspace1 &
 #exec --no-startup-id termite --name su1 -c ~/.config/termite/workspace1 -e 'bash -c "screenfetch; exec bash"' &
+
+###################### i3 Layout saving ##############################
+
+#### Works!
+#exec_always --no-startup-id i3-msg 'workspace ; exec termite --name t1 -c ~/.config/termite/workspace1'
+
+# exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+
+# 
+#### This is for saving workspace layout (N=workspace)
+#i3-save-tree --workspace N > ~/.i3/workspace_N.json
+#### This is needed for stripping/editing the json after layout save.
+#tail -n +2 ~/.i3/workspace_N.json | fgrep -v '// splitv' | sed 's|//||g' > ~/.i3/workspace_N.json
+
+###################### i3 Layout execs ################################
+
+exec --no-startup-id "i3-msg 'workspace ; append_layout ~/.i3/workspace_1-3.json'"
+
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t1 -c ~/.config/termite/workspace1'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t2 -c ~/.config/termite/workspace1'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t3 -c ~/.config/termite/workspace1'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t4 -c ~/.config/termite/workspace1'
+
 #######################################################################
 
 # Wallpaper
