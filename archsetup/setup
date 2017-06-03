@@ -163,6 +163,8 @@ function bg() {
 	# Even worse..
 	dont get me started on dhcpcd, netctl, and wifi-menu...
 	use a fucking ethernet cable for God's sake'
+	# Might've overreacted a bit.. stick with nmcli and disable network-manager.
+	
 	
 	# i3-gaps install, termite install, Thunar install, moka-icon-theme-git, faba-mono-theme
 	# neofetch, 
@@ -171,7 +173,7 @@ function bg() {
 	
 	# Make i3 config for exporting to fresh installs #WIP
 	
-	gather dotfiles for easy install on new systems [Saiyūsen jikō yo!]
+	# Gather dotfiles for easy install on new systems [Saiyūsen jikō yo!]
 	$ pacman -Qqe > package_list.txt # Check flags, want everything other than AUR packs
 	# make seperate  > aur_list.txt for yaourt 
 	
@@ -186,7 +188,24 @@ function bg() {
 	# Cava
 	$ yaourt -S cava
 	
+	# MOC
+	$ yaourt moc // 2
+	
+	# Bumblebee i3 bar
+	# https://github.com/tobi-wan-kenobi/bumblebee-status
+	
+	# Qutebrowser
+	# Packer instead of Yaourt?
+	
+	
+	###################################################################
+	###             RICE GOD Luke Smith YouTube Channel             ###
+	###################################################################
+	###  https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA   ###
+	###################################################################
+	
 ##_13)_############################## Package Lists ##############################################
+##                                    !NOT UPDATED!
 
 # All foreign packages
 
