@@ -152,7 +152,7 @@ bindsym $mod+grave		exec --no-startup-id bash /usr/local/bin/scripts/transset.sh
 
 ######################    Scratchpad     #############################
 
-bindsym $mod+u [instance="dropdown"] scratchpad show
+bindsym $mod+u			exec [instance="dropdown"] scratchpad show
 
 exec --no-startup-id $term --name=dropdown
 
@@ -377,7 +377,6 @@ assign [class="Pavucontrol"]		$_ws9		# [03]
 assign [class="imagewriter"]		$_ws9
 #assign [class="Gimp"]			$_ws0
 assign [title="WeeChat 1.8"]		$_ws6		# [02]
-assign [class="WeeChat 1.8"]		$_ws6
 #for_window [title="GIMP Startup"] move workspace $ws5
 
 # Comments
@@ -411,9 +410,9 @@ assign [class="WeeChat 1.8"]		$_ws6
 exec --no-startup-id "i3-msg 'workspace ; append_layout ~/.i3/workspace_1-3.json'"
 
 exec --no-startup-id i3-msg 'workspace ; exec termite --name t1 -c ~/.config/termite/workspace1'
-exec --no-startup-id i3-msg 'workspace ; exec termite --name t2 -c ~/.config/termite/workspace1 -e cava'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t2 -c ~/.config/termite/workspace1'
 exec --no-startup-id i3-msg 'workspace ; exec termite --name t3 -c ~/.config/termite/workspace1 -e htop'
-exec --no-startup-id i3-msg 'workspace ; exec termite --name t4 -c ~/.config/termite/workspace1 -e speedometer -r enp0s3 -t enp0s3'
+exec --no-startup-id i3-msg 'workspace ; exec termite --name t4 -c ~/.config/termite/workspace1 -e cava'
 
 ##########################################################################
 #_c09                         i3 Bar & Colors                          ###
@@ -484,11 +483,11 @@ bindsym XF86AudioPrev		exec playerctl previous
 #bindsym XF86AudioLowerVolume	exec --no-startup-id pamixer -d 5
 #bindsym XF86AudioMute		exec --no-startup-id pamixer -t
 
-#bindsym $mod+plus		exec --no-startup-id pamixer -i 5
-#bindsym $mod+Shift+plus		exec --no-startup-id pamixer -i 15
+bindsym $mod+plus		exec --no-startup-id pamixer -i 5
+bindsym $mod+Shift+plus		exec --no-startup-id pamixer -i 15
 
-#bindsym $mod+minus 		exec --no-startup-id pamixer -d 5
-#bindsym $mod+Shift+minus	exec --no-startup-id pamixer -d 15
+bindsym $mod+minus 		exec --no-startup-id pamixer -d 5
+bindsym $mod+Shift+minus	exec --no-startup-id pamixer -d 15
 
 #bindsym $mod+bracketleft 	exec --no-startup-id mocp -k -10
 #bindsym $mod+Shift+bracketleft 	exec --no-startup-id mocp -k -120

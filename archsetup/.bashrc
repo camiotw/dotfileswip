@@ -150,7 +150,7 @@ cconv() {
 
 ################################# Overwatch ECHOs ################################################
 
-neofetch
+#neofetch
 echo
 echo Remember your TO DO list!!   todolist = cat file
 echo

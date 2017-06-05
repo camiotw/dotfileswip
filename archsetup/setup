@@ -201,6 +201,17 @@ function bg() {
 	
 	# Mount/Unmount scripts + USB sync scripts
 	
+	# vim/nvim study up son
+	# DL & setup LaTeX and check it out I guess..
+	
+	# Weebfonts (for chromium)
+	$ aur -S ttf-freefont ttf-arphic-uming ttf-baekmuk
+	
+	# imgur
+	$ aur -S imgur-screenshot-git xclip	
+	
+	
+	
 	
 	
 	
