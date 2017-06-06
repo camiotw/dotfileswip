@@ -436,12 +436,29 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 ############################# .i3 BAR ####################################
+#bar {
+#        status_command i3blocks -c ~/.i3/i3blocks.conf
+#	verbose true
+#	workspace_buttons yes
+#	position top	
+#	separator_symbol "::"	
+#	colors {
+#		background $bg-color
+#	    	separator #757575
+#		#                  border             background         text
+#		focused_workspace  $bg-color          $bg-color          $text-color
+#		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#	}
+#}
+#
+
+
 bar {
-        status_command i3blocks -c ~/.i3/i3blocks.conf
-	verbose true
-	workspace_buttons yes
-	position top	
-	separator_symbol "::"	
+	# This status command requires bumblebee-status. You must change it to your desired settings!
+	# https://github.com/tobi-wan-kenobi/bumblebee-status
+	position top
+	status_command ~/.config/bumblebee-status/bumblebee-status -m pasink pasource battery nic pacman disk datetime -p disk.path=/ datetime.format="%a, %b %d, %Y at %H:%M" -t gruvbox-powerline
 	colors {
 		background $bg-color
 	    	separator #757575
@@ -449,8 +466,13 @@ bar {
 		focused_workspace  $bg-color          $bg-color          $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+	}	
 }
+	
+## Python Requirements
+#sudo pip install requests
+#sudo pip install psutil
+#sudo pip install netifaces
 
 ##########################################################################
 #_c10                         Volume & Media                           ###
@@ -485,13 +507,13 @@ bindsym XF86AudioPrev		exec playerctl previous
 #bindsym XF86AudioMute		exec --no-startup-id pamixer -t
 
 #bindsym $mod+plus		exec --no-startup-id pamixer -i 5
-#bindsym $mod+Shift+plus		exec --no-startup-id pamixer -i 15
+#bindsym $mod+Shift+plus	exec --no-startup-id pamixer -i 15
 
 #bindsym $mod+minus 		exec --no-startup-id pamixer -d 5
 #bindsym $mod+Shift+minus	exec --no-startup-id pamixer -d 15
 
 #bindsym $mod+bracketleft 	exec --no-startup-id mocp -k -10
-#bindsym $mod+Shift+bracketleft 	exec --no-startup-id mocp -k -120
+#bindsym $mod+Shift+bracketleft exec --no-startup-id mocp -k -120
 
 #bindsym $mod+bracketright 	exec --no-startup-id mocp -k 10
 #bindsym $mod+Shift+bracketright exec --no-startup-id mocp -k 120
