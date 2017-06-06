@@ -210,7 +210,10 @@ function bg() {
 	# imgur
 	$ aur -S imgur-screenshot-git xclip	
 	
-	
+	## Python Requirements
+	$ sudo pip install requests
+	$ sudo pip install psutil
+	$ sudo pip install netifaces
 	
 	
 	
