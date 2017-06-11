@@ -215,7 +215,8 @@ function bg() {
 	$ sudo pip install psutil
 	$ sudo pip install netifaces
 	
-	
+	# Python tk
+	$ sudo pacman -S tk
 	
 	
 	###################################################################
