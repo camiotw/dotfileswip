@@ -1,0 +1,2 @@
+0 9-15 1-5 * * /usr/local/bin/scripts/stsnap
+0 14 * * * /usr/local/bin/scripts/backupshutdown

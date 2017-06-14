@@ -1,0 +1,37 @@
+#!/bin/bash
+
+###### PART 1 (on root account, usually after fresh install)
+
+pause=1
+while [ $pause == 1 ]
+do
+	echo "Input desired username"
+	echo ""
+	echo ""
+	read USER
+	read -p "You have chosen $USER for your name. Are you sure? [Y/N]" yn
+	case $yn in
+		[Yy]* ) pause=0 ;;
+		[yes]* ) pause=0 ;;
+		[Yes]* ) pause=0 ;;
+	esac
+  
+done
+
+useradd -m -g wheel -s /bin/bash $USER
+passwd $USER
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+
+pacman --noconfirm --needed -S base-devel xorg-xinit xorg-server termite feh ffmpeg pulseaudio pulseaudio-alsa arandr pavucontrol pamixer mpv wget rofi python-pip vim w3m ranger mediainfo poppler highlight tmux calcurse htop libqalculate newsbeuter moc network-manager-applet networkmanager firefox qutebrowser imagemagick transmission-cli atool libcaca xcompmgr transset-df blender pinta gimp texlive-most texlive-lang markdown mupdf evince audacity vim-latexsuite rsync youtube-dl youtube-viewer openssh syncthing noto-fonts-cjk noto-fonts-emoji cups screenfetch scrot unzip unrar biber ntfs-3g ufw chromium dhcpcd gedit gedit-plugins dunst gparted dropbox devilspie guake handbrake gzip lxappearance-gtk3 compton cmus mariadb zsh sed simplescreenrecorder tar thunar wireless_tools thunar-archive-plugin thunar-media-tags-plugin thunar-volman smplayer wpa_actiond wpa_supplicant lightdm-gtk-greeter lightdm-gtk-greeter-settings
+
+systemctl enable NetworkManager
+systemctl start NetworkManager
+
+sudo pip install requests psutil netifaces
+
+echo "root system configuration complete."
+echo ""
+echo "Now log out of root (ctrl-d), log in as $USER and run the following command:"
+echo ""
+echo "bash camioarch / or bash camioarch.sh"
